@@ -28,8 +28,8 @@ To set up Discord PC Remote, follow these steps:
 2. Enter your bot's token in the `config.json` file and configure the bot to your liking.
     ```json
     {
-    "token": "TOKEN HERE",
-    "prefix": "!"
+        "token": "TOKEN HERE",
+        "prefix": "!"
     }
     ```
 3. Enable all `Gateway Intents` in the "Bot" tab.
