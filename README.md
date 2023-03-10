@@ -1,4 +1,4 @@
-# PC Remote Discord
+# Discord PC Remote
 
 PC Remote Discord is a simple Python program that allows you to remotely access your PC's power using Discord. With this program, you can easily shutdown, restart, or put your PC to hibernation through Discord commands.
 
