@@ -20,6 +20,10 @@ Here are the available commands that you can use with Discord PC Remote:
 
 Note: The time specified in the !shutdown and !restart commands should be in seconds.
 
+## No Console Mode
+
+After a successful setup and verifying that there are no bugs, you have the bot running in the background without a console. Just run the `main.py (no-console).pyw` file instead!
+
 ## How to Set Up/Install
 
 To set up Discord PC Remote, follow these steps:
