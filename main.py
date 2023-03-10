@@ -2,27 +2,27 @@ import discord
 from discord.ext import commands
 import json
 import os
-import time
 
 configFile = 'config.json'
 
 try:
     with open(configFile) as f:
         try:
-            token = json.load(f)['token']
+            # Check to see if json has everything
+            config = json.load(f)
+            token = config['token']
+            prefix = config['prefix']
         except KeyError:
-            print('Broken config file! Missing token in json.\nResetting config file...')
-            time.sleep(1)
-            token = input('Please enter your token: ')
-            with open(configFile, 'w') as f:
-                json.dump({'token': token}, f)
+            print('Config file is missing some values! Please check the README.md or GitHub for the config template.')
+            input('Press enter to exit...')
+            exit()
 except FileNotFoundError:
-    token = input('Config file not found! Please enter your token: ')
-    with open(configFile, 'w') as f:
-        json.dump({'token': token}, f)
+    print(f'{configFile} not found!')
+    input('Press enter to exit...')
+    exit()
 
 intents = discord.Intents.all()
-client = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True, help_command=None)
+client = commands.Bot(command_prefix=prefix, intents=intents, case_insensitive=True, help_command=None)
 
 @client.event
 async def on_ready():
@@ -75,11 +75,4 @@ async def help(ctx):
 try:
     client.run(token)
 except discord.errors.LoginFailure:
-    token = input('Invalid token! Please enter your valid token: ')
-    with open(configFile, 'r') as f:
-        config = json.load(f)
-    config['token'] = token
-    with open(configFile, 'w') as f:
-        json.dump(config, f)
-    print("Token updated! Restarting...")
-    os.system(f'python {__file__}')
+    ('Invalid token! Please enter a valid token in the config file.')

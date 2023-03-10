@@ -25,10 +25,11 @@ Note: The time specified in the !shutdown and !restart commands should be in sec
 To set up Discord PC Remote, follow these steps:
 
 1. Create a bot on the [Discord Developer page](https://discord.com/developers/applications).
-2. Enter your bot's token in the `config.json` file and configure the bot.
+2. Enter your bot's token in the `config.json` file and configure the bot to your liking.
     ```json
     {
-        "token": "TOKEN HERE"
+    "token": "TOKEN HERE",
+    "prefix": "!"
     }
     ```
 3. Enable all `Gateway Intents` in the "Bot" tab.
