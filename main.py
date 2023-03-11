@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import os
 
-configFile = 'config2.json'
+configFile = 'config.json'
 
 try:
     with open(configFile) as f:
