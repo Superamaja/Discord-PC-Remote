@@ -64,12 +64,18 @@ async def hibernate(ctx, *args):
     os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
 
 @client.command()
+async def stop(ctx):
+    await ctx.send('PC Remote is shutting down...')
+    await client.close()
+
+@client.command()
 async def help(ctx):
     await ctx.send('**-----PC Remote-----**\n\n'
-                   '`!shutdown <time>` - Shutdowns the PC in the specified time.\n`' +
-                   '!restart <time>` - Restarts the PC in the specified time.\n' +
-                   '`!hibernate` - Puts the PC to hibernation (Similar to sleep).\n`' +
-                   '!abort` - Aborts the shutdown or restart.'
+                    '`!shutdown <time>` - Shutdowns the PC in the specified time.\n`' +
+                    '!restart <time>` - Restarts the PC in the specified time.\n' +
+                    '`!hibernate` - Puts the PC to hibernation (Similar to sleep).\n`' +
+                    '!abort` - Aborts the shutdown or restart.\n' +
+                    '`!stop` - Stops the bot.\n'
                    )
 
 try:
