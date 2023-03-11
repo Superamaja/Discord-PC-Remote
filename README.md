@@ -6,7 +6,7 @@ Discord PC Remote is a Python program that enables you to access your PC's power
 
 -   Remotely access your PC's power.
 -   Uses Discord to send and receive commands.
--   Option to automatically start the program with Windows. (Coming Soon!)
+-   Option to automatically start the program with Windows.
 
 ## Commands
 
@@ -19,6 +19,10 @@ Here are the available commands that you can use with Discord PC Remote:
 -   `!hibernate` - Puts the PC to hibernation (similar to sleep).
 
 Note: The time specified in the !shutdown and !restart commands should be in seconds.
+
+## Activating/Deactivating Startup with Windows
+
+Run the `startup-config.py` file and follow the directions. It will place a shortcut in shell:startup targeting the `main (no-console).pyw`. Make sure you rerun this file if the program's directory is changed.
 
 ## No Console Mode
 
