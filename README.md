@@ -17,6 +17,7 @@ Here are the available commands that you can use with Discord PC Remote:
 -   `!shutdown <time>` - Shuts down the PC in the specified time.
 -   `!restart <time>` - Restarts the PC in the specified time.
 -   `!hibernate` - Puts the PC to hibernation (similar to sleep).
+-   `!stop` - Stops the bot.
 
 Note: The time specified in the !shutdown and !restart commands should be in seconds.
 
