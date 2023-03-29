@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import json
-import os
+import subprocess
 
 configFile = 'config.json'
 
@@ -30,7 +30,7 @@ async def on_ready():
 
 @client.command()
 async def abort(ctx):
-    returnCode = os.system('shutdown -a')
+    returnCode = subprocess.call('shutdown -a', shell=True)
     if returnCode == 0:
         await ctx.send('Action aborted!')
     elif returnCode == 1116:
@@ -45,7 +45,7 @@ async def shutdown(ctx, *args):
     else:
         try:
             int(args[0]) # Check if the argument is a number
-            os.system(f'shutdown -s -t {args[0]}')
+            subprocess.call(f'shutdown -s -t {args[0]}', shell=True)
             await ctx.send(f'Shutting down in {args[0]} seconds.')
         except ValueError:
             await ctx.send('Please enter a valid number. Use `!help` for more information.')
@@ -55,13 +55,13 @@ async def restart(ctx, *args):
     if len(args) == 0:
         await ctx.send('Please enter a restart time. For an instant restart, enter `0`.')
     else:
-        os.system(f'shutdown -r -t {args[0]}')
+        subprocess.call(f'shutdown -r -t {args[0]}', shell=True)
         await ctx.send(f'Restarting in {args[0]} seconds.')
 
 @client.command(aliases=['sleep'])
 async def hibernate(ctx, *args):
     await ctx.send('PC has been set into hibernation.')
-    os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
+    subprocess.call('shutdown -h', shell=True)
 
 @client.command()
 async def stop(ctx):
