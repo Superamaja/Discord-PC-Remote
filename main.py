@@ -62,6 +62,17 @@ async def restart(ctx, *args):
 async def hibernate(ctx, *args):
     await ctx.send('PC has been set into hibernation.')
     subprocess.call('shutdown -h', shell=True)
+    
+@client.command()
+async def run(ctx, *args):
+    if len(args) == 0:
+        await ctx.send('Please specify a program path to run.')
+    else:
+        code = subprocess.call(' '.join(args), shell=True)
+        if code == 0:
+            await ctx.send('Program ran successfully!')
+        else:
+            await ctx.send(f'An error occurred while running the program. Code returned: `{code}`. Check the console for more information.')
 
 @client.command()
 async def stop(ctx):
@@ -75,6 +86,7 @@ async def help(ctx):
                     '!restart <time>` - Restarts the PC in the specified time.\n' +
                     '`!hibernate` - Puts the PC to hibernation (Similar to sleep).\n`' +
                     '!abort` - Aborts the shutdown or restart.\n' +
+                    '`!run <path>` - Runs the specified program at the path.\n' +
                     '`!stop` - Stops the bot.\n'
                    )
 
