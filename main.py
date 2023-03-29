@@ -60,7 +60,7 @@ async def restart(ctx, *args):
 
 @client.command(aliases=['sleep'])
 async def hibernate(ctx, *args):
-    await ctx.send('PC has been put to sleep.')
+    await ctx.send('PC has been set into hibernation.')
     os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
 
 @client.command()
